@@ -7,6 +7,10 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+type MongoDB interface {
+	GetConn() (*mongo.Database, *mongo.Collection, context.Context, error)
+}
+
 type mongoDB struct {
 	dbName      string
 	dbTableName string
